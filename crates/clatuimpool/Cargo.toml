@@ -1,0 +1,15 @@
+[package]
+name = "clatuimpool"
+description = "CLATUIMPOOL - a 2D eight ball game"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[features]
+# Windows builds are GUI-only by default. Enable this to keep a terminal window for
+# logging while debugging: `cargo run --features console`.
+console = []
+
+[dependencies]
+pool-core = { path = "../pool-core" }
+macroquad = "0.4"

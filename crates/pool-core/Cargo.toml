@@ -1,0 +1,8 @@
+[package]
+name = "pool-core"
+description = "Deterministic 2D billiards simulation core for CLATUIMPOOL"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
