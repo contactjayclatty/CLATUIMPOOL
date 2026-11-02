@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" role="img" aria-labelledby="t">
+  <title id="t">CLATIUM</title>
+  <!-- Carved C: original block-grid C with chamfered corners, a carved inner lip, a stone bevel and block joints. -->
+  <path fill="#86a5c9" d="M3 1H13L15 3V5H6.5L5 6.5V9.5L6.5 11H15V13L13 15H3L1 13V3Z"/>
+  <path fill="#b3c7de" d="M3 1H13L14 2H3.4L2 3.4V12.6L1 13V3Z"/>
+  <path fill="#5b7699" d="M15 11V13L13 15H3L1 13H2.4L3.4 14H12.6L14 12.6V11Z"/>
+  <path fill="#3f5674" d="M5 6.5L6.5 5H15V6.2H7L6.2 7V9.5H5Z"/>
+  <path fill="#5b7699" opacity=".7" d="M9.6 1.6h.6v3.4h-.6zM9.6 11h.6v3.4h-.6zM1.6 7.7h3.4v.6H1.6z"/>
+</svg>

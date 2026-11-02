@@ -1,0 +1,7 @@
+# Keep binary assets out of any line-ending conversion.
+*.png binary
+*.jpg binary
+*.ico binary
+*.zip binary
+*.exe binary
+*.ttf binary

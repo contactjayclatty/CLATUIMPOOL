@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 280" width="1200" height="280" role="img" aria-labelledby="title desc">
+  <title id="title">CLATUIMPOOL — a deterministic eight ball game in Rust</title>
+  <desc id="desc">The CLATIUM carved-C mark beside the CLATUIMPOOL wordmark, with a steel pixel rack motif.</desc>
+  <defs>
+    <clipPath id="frame"><rect x="0" y="0" width="1200" height="280"/></clipPath>
+  </defs>
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="280" fill="#121417"/>
+
+    <!-- faint 40 px grid, the same backdrop the CLATIUM site uses -->
+    <g stroke="#17191d" stroke-width="1">
+      <path d="M40 0V280M80 0V280M120 0V280M160 0V280M200 0V280M240 0V280M280 0V280M320 0V280M360 0V280M400 0V280M440 0V280M480 0V280M520 0V280M560 0V280M600 0V280M640 0V280M680 0V280M720 0V280M760 0V280M800 0V280M840 0V280M880 0V280M920 0V280M960 0V280M1000 0V280M1040 0V280M1080 0V280M1120 0V280M1160 0V280"/>
+      <path d="M0 40H1200M0 80H1200M0 120H1200M0 160H1200M0 200H1200M0 240H1200"/>
+    </g>
+
+    <!-- 3 px steel top edge -->
+    <rect x="0" y="0" width="1200" height="3" fill="#86a5c9"/>
+
+    <!-- carved-C mark, 96 px so the block edges stay crisp -->
+    <g transform="translate(72 92) scale(6)">
+      <path fill="#86a5c9" d="M3 1H13L15 3V5H6.5L5 6.5V9.5L6.5 11H15V13L13 15H3L1 13V3Z"/>
+      <path fill="#b3c7de" d="M3 1H13L14 2H3.4L2 3.4V12.6L1 13V3Z"/>
+      <path fill="#5b7699" d="M15 11V13L13 15H3L1 13H2.4L3.4 14H12.6L14 12.6V11Z"/>
+      <path fill="#3f5674" d="M5 6.5L6.5 5H15V6.2H7L6.2 7V9.5H5Z"/>
+      <g fill="#5b7699" opacity=".7">
+        <path d="M9.6 1.6h.6v3.4h-.6zM9.6 11h.6v3.4h-.6z"/>
+      </g>
+    </g>
+
+    <!-- kicker -->
+    <text x="202" y="101" font-family="Cascadia Mono, Consolas, ui-monospace, monospace" font-size="12.5"
+          letter-spacing="2.4" fill="#86a5c9">CLATIUM / BILLIARDS</text>
+
+    <!-- wordmark -->
+    <text x="200" y="158" font-family="Segoe UI, system-ui, -apple-system, sans-serif" font-size="57"
+          font-weight="700" letter-spacing="-1.6" fill="#e9ebee">CLATUIMPOOL</text>
+
+    <!-- 2 px accent underline, the same rule the site and launcher use -->
+    <rect x="201" y="174" width="132" height="2" fill="#86a5c9"/>
+
+    <!-- subline -->
+    <text x="202" y="205" font-family="Cascadia Mono, Consolas, ui-monospace, monospace" font-size="12.5"
+          letter-spacing="1.5" fill="#a9b0ba">DETERMINISTIC EIGHT BALL IN RUST</text>
+
+    <!-- pixel rack motif: five rows of bevelled blocks -->
+    <g>
+      <g>
+        <rect x="985" y="67" width="26" height="26" fill="#86a5c9"/>
+        <rect x="985" y="67" width="26" height="2" fill="#b3c7de" opacity=".55"/>
+        <rect x="985" y="67" width="2" height="26" fill="#b3c7de" opacity=".55"/>
+        <rect x="985" y="91" width="26" height="2" fill="#0b0c0e" opacity=".55"/>
+        <rect x="1009" y="67" width="2" height="26" fill="#0b0c0e" opacity=".55"/>
+      </g>
+      <g>
+        <rect x="970" y="97" width="26" height="26" fill="#a8c1de"/>
+        <rect x="970" y="97" width="26" height="2" fill="#b3c7de" opacity=".55"/>
+        <rect x="970" y="97" width="2" height="26" fill="#b3c7de" opacity=".55"/>
+        <rect x="970" y="121" width="26" height="2" fill="#0b0c0e" opacity=".55"/>
+        <rect x="994" y="97" width="2" height="26" fill="#0b0c0e" opacity=".55"/>
+      </g>
+      <g>
+        <rect x="1000" y="97" width="26" height="26" fill="#5b7699"/>
+        <rect x="1000" y="97" width="26" height="2" fill="#b3c7de" opacity=".55"/>
+        <rect x="1000" y="97" width="2" height="26" fill="#b3c7de" opacity=".55"/>
+        <rect x="1000" y="121" width="26" height="2" fill="#0b0c0e" opacity=".55"/>
+        <rect x="1024" y="97" width="2" height="26" fill="#0b0c0e" opacity=".55"/>
+      </g>
+      <g>
+        <rect x="955" y="127" width="26" height="26" fill="#5b7699"/>
+        <rect x="955" y="127" width="26" height="2" fill="#b3c7de" opacity=".55"/>
+        <rect x="955" y="127" width="2" height="26" fill="#b3c7de" opacity=".55"/>
+        <rect x="955" y="151" width="26" height="2" fill="#0b0c0e" opacity=".55"/>
+        <rect x="979" y="127" width="2" height="26" fill="#0b0c0e" opacity=".55"/>
+      </g>
+      <g>
+        <rect x="985" y="127" width="26" height="26" fill="#86a5c9"/>
+        <rect x="985" y="127" width="26" height="2" fill="#b3c7de" opacity=".55"/>
+        <rect x="985" y="127" width="2" height="26" fill="#b3c7de" opacity=".55"/>
+        <rect x="985" y="151" width="26" height="2" fill="#0b0c0e" opacity=".55"/>
+        <rect x="1009" y="127" width="2" height="26" fill="#0b0c0e" opacity=".55"/>
+      </g>
+      <g>
+        <rect x="1015" y="127" width="26" height="26" fill="#a8c1de"/>
+        <rect x="1015" y="127" width="26" height="2" fill="#b3c7de" opacity=".55"/>
+        <rect x="1015" y="127" width="2" height="26" fill="#b3c7de" opacity=".55"/>
+        <rect x="1015" y="151" width="26" height="2" fill="#0b0c0e" opacity=".55"/>
+        <rect x="1039" y="127" width="2" height="26" fill="#0b0c0e" opacity=".55"/>
+      </g>
+      <g>
+        <rect x="940" y="157" width="26" height="26" fill="#86a5c9"/>
+        <rect x="940" y="157" width="26" height="2" fill="#b3c7de" opacity=".55"/>
+        <rect x="940" y="157" width="2" height="26" fill="#b3c7de" opacity=".55"/>
+        <rect x="940" y="181" width="26" height="2" fill="#0b0c0e" opacity=".55"/>
+        <rect x="964" y="157" width="2" height="26" fill="#0b0c0e" opacity=".55"/>
+      </g>
+      <g>
+        <rect x="970" y="157" width="26" height="26" fill="#5b7699"/>
+        <rect x="970" y="157" width="26" height="2" fill="#b3c7de" opacity=".55"/>
+        <rect x="970" y="157" width="2" height="26" fill="#b3c7de" opacity=".55"/>
+        <rect x="970" y="181" width="26" height="2" fill="#0b0c0e" opacity=".55"/>
+        <rect x="994" y="157" width="2" height="26" fill="#0b0c0e" opacity=".55"/>
+      </g>
+      <g>
+        <rect x="1000" y="157" width="26" height="26" fill="#a8c1de"/>
+        <rect x="1000" y="157" width="26" height="2" fill="#b3c7de" opacity=".55"/>
+        <rect x="1000" y="157" width="2" height="26" fill="#b3c7de" opacity=".55"/>
+        <rect x="1000" y="181" width="26" height="2" fill="#0b0c0e" opacity=".55"/>
+        <rect x="1024" y="157" width="2" height="26" fill="#0b0c0e" opacity=".55"/>
+      </g>
+      <g>
+        <rect x="1030" y="157" width="26" height="26" fill="#86a5c9"/>
+        <rect x="1030" y="157" width="26" height="2" fill="#b3c7de" opacity=".55"/>
+        <rect x="1030" y="157" width="2" height="26" fill="#b3c7de" opacity=".55"/>
+        <rect x="1030" y="181" width="26" height="2" fill="#0b0c0e" opacity=".55"/>
+        <rect x="1054" y="157" width="2" height="26" fill="#0b0c0e" opacity=".55"/>
+      </g>
+      <g>
+        <rect x="925" y="187" width="26" height="26" fill="#3f5674"/>
+        <rect x="925" y="187" width="26" height="2" fill="#b3c7de" opacity=".55"/>
+        <rect x="925" y="187" width="2" height="26" fill="#b3c7de" opacity=".55"/>
+        <rect x="925" y="211" width="26" height="2" fill="#0b0c0e" opacity=".55"/>
+        <rect x="949" y="187" width="2" height="26" fill="#0b0c0e" opacity=".55"/>
+      </g>
+      <g>
+        <rect x="955" y="187" width="26" height="26" fill="#86a5c9"/>
+        <rect x="955" y="187" width="26" height="2" fill="#b3c7de" opacity=".55"/>
+        <rect x="955" y="187" width="2" height="26" fill="#b3c7de" opacity=".55"/>
+        <rect x="955" y="211" width="26" height="2" fill="#0b0c0e" opacity=".55"/>
+        <rect x="979" y="187" width="2" height="26" fill="#0b0c0e" opacity=".55"/>
+      </g>
+      <g>
+        <rect x="985" y="187" width="26" height="26" fill="#5b7699"/>
+        <rect x="985" y="187" width="26" height="2" fill="#b3c7de" opacity=".55"/>
+        <rect x="985" y="187" width="2" height="26" fill="#b3c7de" opacity=".55"/>
+        <rect x="985" y="211" width="26" height="2" fill="#0b0c0e" opacity=".55"/>
+        <rect x="1009" y="187" width="2" height="26" fill="#0b0c0e" opacity=".55"/>
+      </g>
+      <g>
+        <rect x="1015" y="187" width="26" height="26" fill="#a8c1de"/>
+        <rect x="1015" y="187" width="26" height="2" fill="#b3c7de" opacity=".55"/>
+        <rect x="1015" y="187" width="2" height="26" fill="#b3c7de" opacity=".55"/>
+        <rect x="1015" y="211" width="26" height="2" fill="#0b0c0e" opacity=".55"/>
+        <rect x="1039" y="187" width="2" height="26" fill="#0b0c0e" opacity=".55"/>
+      </g>
+      <g>
+        <rect x="1045" y="187" width="26" height="26" fill="#86a5c9"/>
+        <rect x="1045" y="187" width="26" height="2" fill="#b3c7de" opacity=".55"/>
+        <rect x="1045" y="187" width="2" height="26" fill="#b3c7de" opacity=".55"/>
+        <rect x="1045" y="211" width="26" height="2" fill="#0b0c0e" opacity=".55"/>
+        <rect x="1069" y="187" width="2" height="26" fill="#0b0c0e" opacity=".55"/>
+      </g>
+    </g>
+
+    <!-- hairline frame -->
+    <rect x="0.5" y="0.5" width="1199" height="279" fill="none" stroke="#3a4049" stroke-width="1"/>
+  </g>
+</svg>

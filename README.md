@@ -1,140 +1,177 @@
-# CLATUIMPOOL
+<div align="center">
+  <img src="docs/brand/banner.svg" width="100%" alt="CLATUIMPOOL — deterministic eight ball in Rust">
+</div>
 
-A 2D eight ball game in Rust. Deterministic simulation core, thin macroquad renderer.
+<br>
 
-```
-crates/pool-core     physics + rules, no graphics dependencies
-crates/clatuimpool   window, screens, input and drawing
-```
+<div align="center">
+  <a href="https://github.com/contactjayclatty/CLATUIMPOOL/releases/latest"><img alt="Release" height="20" src="https://img.shields.io/github/v/release/contactjayclatty/CLATUIMPOOL?style=flat-square&amp;labelColor=121417&amp;color=86a5c9&amp;label=release"></a>
+  <a href="crates/pool-core/src/lib.rs"><img alt="14 tests passing" height="20" src="https://img.shields.io/badge/tests-14%20passing-9fd4a8?style=flat-square&amp;labelColor=121417"></a>
+  <a href="Cargo.toml"><img alt="Rust edition 2024" height="20" src="https://img.shields.io/badge/rust-edition%202024-5b7699?style=flat-square&amp;labelColor=121417"></a>
+  <a href="https://github.com/contactjayclatty/CLATUIMPOOL/releases/latest"><img alt="Platform Windows x64" height="20" src="https://img.shields.io/badge/platform-windows%20x64-282c33?style=flat-square&amp;labelColor=121417"></a>
+  <a href="LICENSE-MIT"><img alt="MIT or Apache-2.0" height="20" src="https://img.shields.io/badge/licence-MIT%20%7C%20Apache--2.0-3f5674?style=flat-square&amp;labelColor=121417"></a>
+</div>
 
-## Download
+<br>
 
-Grab `clatuimpool-v<version>-win64.zip` from the
-[releases page](../../releases/latest), unpack it and run `clatuimpool.exe`.
-It is a single self-contained binary: no installer, no runtime to install, no
-console window. Windows 10 or newer, 64-bit.
+> **Sixteen balls, two players, one stubborn eight ball.**
+> Everything between the cue tip and the pocket is a deterministic Rust simulation — the same
+> shot always ends in the same place, down to the millimetre.
 
-## Build from source
+<br>
 
-```
-cargo run --release
-```
+<sub><code>01 — THE TABLE</code></sub>
 
-Requires a Rust toolchain with edition 2024 support (1.85 or newer). The Windows build is
-GUI-only: no console window appears, whether you launch it from a terminal, a shortcut or
-Explorer. While debugging you can bring the terminal back with
-`cargo run --features console`.
+## Look at it
 
-First build pulls macroquad and takes a couple of minutes; after that it starts instantly.
-Debug builds work but the release profile is noticeably smoother.
+<div align="center">
+  <img src="docs/shots/play.png" width="100%" alt="The playing screen: walnut table, racked balls, aiming line and the two player cards">
+</div>
 
-Settings are written to `clatuimpool.cfg` in the working directory. Delete it to reset
-everything to defaults.
+<div align="center">
+  <img src="docs/shots/menu.png" width="49%" alt="Menu screen">
+  <img src="docs/shots/settings.png" width="49%" alt="Settings screen">
+</div>
+
+<br>
+
+<sub><code>02 — WHAT YOU GET</code></sub>
+
+## On the table
+
+| | |
+|:--|:--|
+| **REGULATION GEOMETRY** | 2.54 m × 1.27 m playing surface, six pockets, 57.15 mm balls, and the standard rack — 1 on the foot spot, 8 dead centre, a solid and a stripe in the back corners. |
+| **TRUE COLOURS** | White cue ball, yellow 1 through maroon 7, black 8, and 9–15 as striped versions of 1–7, each with a shaded sphere, specular highlight and legible number disc. |
+| **CUE BALL SPIN** | Follow drags the cue through contact, draw pulls it back, side spin throws the object ball off the line of centres and kicks it off the cushions. |
+| **SINKING** | A potted ball slides the last centimetres into the pocket, shrinks behind the rim, fades, and ripples the cloth. |
+| **POTTED TRAY** | The balls each player has sunk stay visible in the bottom bar, and the tray swaps over the moment the turn does. |
+| **AIMING AIDS** | Dashed cue path, ghost ball at the contact point, the object ball's projected line and the cue ball's deflection — every layer can be switched off. |
+| **BALL IN HAND** | A ghost cue ball follows the cursor: green where it may be placed, red against a ball, a cushion or a pocket mouth. |
+| **SIXTEEN SETTINGS** | Aim guide, ball lines, ghost ball, spin pad, tray, commentary, FPS, shake, slow motion, fullscreen, sink speed, pull distance, four table finishes — all saved to `clatuimpool.cfg`. |
+
+<br>
+
+<sub><code>03 — HOW TO PLAY</code></sub>
 
 ## Controls
 
 | Input | Action |
-| --- | --- |
-| Move mouse | Aim: the cue stick sits between the cursor and the cue ball |
-| Hold left button and drag away from the cue ball | Pull the cue back; further = harder |
-| Release left button | Shoot |
-| Drag inside the spin pad | Set follow / draw (up, down) and side spin (left, right) |
-| Left click | Place the cue ball when the banner says BALL IN HAND |
-| `R` | New rack |
-| `Esc` | Pause menu (resume, settings, new rack, main menu) |
-| `Enter` | Play again on the game over screen |
+|:--|:--|
+| **Move mouse** | Aim — the cue sits between the cursor and the cue ball |
+| **Hold left button, drag away** | Pull the cue back; further is harder |
+| **Release** | Shoot |
+| **Drag inside the spin pad** | Follow / draw up and down, side spin left and right |
+| **Left click** | Place the cue ball when the banner says BALL IN HAND |
+| <kbd>R</kbd> | New rack |
+| <kbd>Esc</kbd> | Pause menu |
+| <kbd>Enter</kbd> | Play again on the game over screen |
 
-## Screens
+<br>
 
-- **Menu** - play, settings, quit.
-- **Table** - two player cards with group and balls left, a potted-ball tray for the
-  player whose turn it is, shot commentary, a power meter while you pull back, and the
-  cue ball spin pad.
-- **Settings** - aim guide, predicted ball lines, ghost ball, spin pad, potted tray,
-  shot commentary, screen shake, slow motion, fullscreen, sink speed, pull distance and
-  four table finishes. Everything persists between runs.
-- **Pause / Game over** - resume, new rack, main menu; winner, shots and balls potted.
+<sub><code>04 — THE MODEL</code></sub>
 
-## What works
+## Physics that behaves
 
-- Six pockets, fifteen object balls, cue ball, regulation proportions (2.54 m x 1.27 m).
-- Standard colours and numbering: white cue ball, yellow 1, blue 2, red 3, purple 4,
-  orange 5, green 6, maroon 7, black 8, and 9-15 as striped versions of 1-7.
-- Standard rack: 1 on the foot spot, 8 in the middle of the third row, one solid and
-  one stripe in the back corners.
-- **Cue ball spin**: follow drags the cue ball forward after contact, draw pulls it back,
-  side spin throws the object ball off the line of centres and kicks off the cushions.
-- **Potting animation**: the ball slides the last centimetres into the pocket with an
-  accelerating ease, sinks below the rim, fades out, and ripples the cloth.
-- **Potted tray**: each player's sunk balls are listed on their card and, larger, for the
-  player currently at the table. It switches with the turn.
-- Aiming aid: dashed cue path to first contact, a ghost ball at the contact point, the
-  object ball's predicted line (yellow, with arrow head) and the cue ball's deflection
-  (pale blue). Every part can be switched off in settings.
-- Pocket mouths are cut into the cushions: a ball crossing the cushion line inside a
-  mouth drops in instead of bouncing off an invisible rail, and a ball is potted exactly
-  when its centre enters the drawn hole, so nothing can rest on a pocket rim.
-- Balls cannot rest on a cushion either: every step ends with a containment pass that
-  slides a ball squeezed out by an overlap back onto the cloth, and ball-in-hand
-  placement rejects the pocket mouths.
-- Cushion cloth grabs a little of the ball's tangential speed, the cloth rolls true
-  (a lag shot crosses the table and comes back), breaks run up to 6.5 m/s, and every
-  step ends with an overlap clean-up so balls never render inside each other.
-- Ball in hand: a ghost cue ball follows the cursor, green where it can be placed and
-  red against a ball, a cushion or a pocket mouth. Soft shots get finer power control
-  than a straight linear pull.
-- Continuous collision detection: swept time-of-impact for ball-ball and ball-cushion,
-  so fast shots do not tunnel through other balls.
-- Rolling friction, restitution on cushions and between balls, rest detection.
-- Eight ball rules: open table, group assignment, turn passing, fouls for potting the
-  cue ball / hitting nothing / wrong group first / hitting the eight first / no cushion
-  after contact, potting the eight early loses, potting it with a clean group clear
-  wins, the eight is re-spotted when it drops on the break, and the cue ball comes back
-  with ball in hand after a foul.
+| | |
+|:--|:--|
+| **CONTINUOUS COLLISION** | Swept time-of-impact for ball–ball and ball–cushion, so a 6.5 m/s break cannot tunnel through the pack. |
+| **FIXED STEP** | 240 Hz sub-steps with at most 64 impacts per step, then a four-pass overlap clean-up so nothing renders inside anything else. |
+| **CLOTH** | 0.6 m/s² rolling deceleration — a lag shot crosses the full table and comes back. |
+| **CUSHIONS** | 0.86 restitution, a little tangential grip, and mouths cut out of the rails so a ball drops when its centre enters the drawn hole — never from open felt. |
+| **CONTAINMENT** | Every step clamps the active balls inside the cushion line, so a squeezed ball is slid back onto the cloth instead of resting on a rail. |
+| **SPIN** | Follow and draw are applied as a post-contact velocity transfer, side spin as a throw on the object ball and a kick off the cushion. |
+| **DETERMINISM** | The same input reproduces the same final positions exactly — asserted by the test suite, not by hope. |
 
-## Known simplifications
+## Rules that hold up
 
-- Spin is a velocity transfer on contact, not an angular-momentum solve; there are no
-  masse shots and no jump shots.
-- Spin is not drawn on the ball itself, only on the pad.
-- Potting your last group ball and the eight ball in the same shot counts as a win.
-- No safeties and no call-shot rules.
-- Two players share one screen; there is no opponent AI.
+Open table, group assignment from the first legal pot, turn passing, and fouls for potting
+the cue ball, hitting nothing, hitting the wrong group first, hitting the 8 first, or failing
+to reach a cushion. Fouls hand over ball in hand. The 8 is re-spotted if it drops on the
+break, loses the frame if it drops early, and wins it when the shooter's group is already
+clear.
 
-## Checks
+<br>
 
+<sub><code>05 — BUILD</code></sub>
+
+## Build from source
+
+```bash
+cargo run --release
 ```
-cargo test -p pool-core     # 14 simulation and rules tests
+
+A Rust toolchain with edition 2024 support (1.85+) is all that is needed; the first build
+pulls [`macroquad`](https://macroquad.rs) and takes a couple of minutes. The Windows build is
+GUI-only — no console window, launched from a terminal, a shortcut or Explorer alike. While
+debugging, `cargo run --features console` brings the terminal back.
+
+Prefer a binary? Grab `clatuimpool-v<version>-win64.zip` from the
+[releases page](https://github.com/contactjayclatty/CLATUIMPOOL/releases/latest): a single
+self-contained executable for 64-bit Windows 10 or newer.
+
+```bash
+cargo test -p pool-core                              # 14 simulation and rules tests
 cargo clippy --workspace --all-targets -- -D warnings
 cargo fmt --all --check
 ```
 
-The core tests cover table containment, non-increasing kinetic energy, a straight shot
-into a corner pocket, rest stability, rack legality, shot determinism, momentum transfer,
-follow spin, a lag shot rolling the length of the table, tray bookkeeping and the
-eight-ball edge cases.
+<br>
+
+<sub><code>06 — INSIDE</code></sub>
+
+## Two crates, one boundary
+
+```
+CLATUIMPOOL
+├─ crates/pool-core      physics, table, rack, rules — zero dependencies, zero graphics
+│  ├─ vec2.rs            the only maths type the simulation needs
+│  ├─ physics.rs         time-of-impact solver, impulses, friction, spin, containment
+│  ├─ rules.rs           open table, groups, fouls, eight-ball outcomes
+│  └─ game.rs            fixed-step driver, events, pockets, ball in hand
+└─ crates/clatuimpool    window, screens, input, drawing (macroquad 0.4)
+   ├─ render.rs          table, balls, pockets, aim lines, themes
+   ├─ ui.rs              buttons, toggles, sliders, segmented pickers
+   └─ settings.rs        persisted settings
+```
+
+The core knows nothing about pixels, so the whole game can be tested headlessly and the
+renderer can only ever be a view of it.
+
+<br>
+
+<sub><code>07 — SHIP</code></sub>
 
 ## Releasing
 
-The version lives in one place: `version` under `[workspace.package]` in the root
-`Cargo.toml`. Both crates inherit it.
+The version lives in one place — `version` under `[workspace.package]` in the root
+`Cargo.toml`.
 
-```
+```powershell
 pwsh -File scripts/package.ps1
 ```
 
-builds `target\release\clatuimpool.exe` and zips it with the README and both licence
-files into `dist\clatuimpool-v<version>-win64.zip`.
+builds `target\release\clatuimpool.exe` and zips it with the README and both licences into
+`dist\clatuimpool-v<version>-win64.zip`. Pushing a `v*` tag runs
+`.github/workflows/release.yml`, which formats, lints, tests, packages and publishes the
+release on `windows-latest`.
 
-Publishing is automated: `.github/workflows/release.yml` runs fmt, clippy and the tests on
-`windows-latest`, packages the zip and attaches it to a GitHub release when a `v*` tag is
-pushed.
-
-```
+```bash
 git tag v0.1.0
 git push origin v0.1.0
 ```
 
-## Licence
+<br>
 
-MIT OR Apache-2.0, at your option. See `LICENSE-MIT` and `LICENSE-APACHE`.
+<sub><code>08 — LICENCE</code></sub>
+
+## MIT OR Apache-2.0
+
+Pick either, at your option. See [`LICENSE-MIT`](LICENSE-MIT) and
+[`LICENSE-APACHE`](LICENSE-APACHE).
+
+<br>
+
+<div align="center">
+  <sub><code>CLATIUM · CLATUIMPOOL v0.1.0 · RUST + MACROQUAD · MIT OR APACHE-2.0</code></sub>
+</div>
