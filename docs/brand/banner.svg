@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 280" width="1200" height="280" role="img" aria-labelledby="title desc">
-  <title id="title">CLATUIMPOOL — a deterministic eight ball game in Rust</title>
-  <desc id="desc">The CLATIUM carved-C mark beside the CLATUIMPOOL wordmark, with a steel pixel rack motif.</desc>
+  <title id="title">CLATIUMPOOL — a deterministic eight ball game in Rust</title>
+  <desc id="desc">The CLATIUM carved-C mark beside the CLATIUMPOOL wordmark, with a steel pixel rack motif.</desc>
   <defs>
     <clipPath id="frame"><rect x="0" y="0" width="1200" height="280"/></clipPath>
   </defs>
@@ -33,7 +33,7 @@
 
     <!-- wordmark -->
     <text x="200" y="158" font-family="Segoe UI, system-ui, -apple-system, sans-serif" font-size="57"
-          font-weight="700" letter-spacing="-1.6" fill="#e9ebee">CLATUIMPOOL</text>
+          font-weight="700" letter-spacing="-1.6" fill="#e9ebee">CLATIUMPOOL</text>
 
     <!-- 2 px accent underline, the same rule the site and launcher use -->
     <rect x="201" y="174" width="132" height="2" fill="#86a5c9"/>
